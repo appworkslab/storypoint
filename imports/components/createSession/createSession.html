@@ -1,0 +1,19 @@
+<header>
+    <h1>Sessions</h1>
+</header>
+<form class="new-task">
+    <input class="form-control" ng-model="createSession.sessionName" type="text" name="sessionName" placeholder="Session Name"
+    />
+    <input class="form-control" ng-model="createSession.organizerName" type="text" name="organizerName" placeholder="Organizer Name"
+    />
+    <button ng-click="createSession.addSession()" class="btn btn-success">Submit</button>
+</form>
+<br/>
+<ul>
+    <li ng-repeat="sesison in createSession.sessions" class="list-unstyled" ng-class="{'checked': sesison.checked}">
+        <button class="btn btn-danger" ng-click="createSession.removeSession(sesison)">&times;</button>
+        <a class="anchor" ui-sref="home.session({session:sesison.token})">
+            {{sesison.name}}
+        </a>
+    </li>
+</ul>

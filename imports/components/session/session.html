@@ -1,0 +1,21 @@
+<input ng-show="!session.currentPlayer" ng-model="session.playerName" ng-keydown="session.addPlayer($event)" class="form-control"/>
+
+{{session.session.name}}
+<div>
+    <a class="btn btn-primary btn-sm margin-bottom-xs" ng-click="session.vote(0)">0 Points</a>
+    <a class="btn btn-primary btn-sm margin-bottom-xs" ng-click="session.vote(1)">1 Points</a>
+    <a class="btn btn-primary btn-sm margin-bottom-xs" ng-click="session.vote(2)">2 Points</a>
+    <a class="btn btn-primary btn-sm margin-bottom-xs" ng-click="session.vote(3)">3 Points</a>
+    <a class="btn btn-primary btn-sm margin-bottom-xs" ng-click="session.vote(5)">5 Points</a>
+    <a class="btn btn-primary btn-sm margin-bottom-xs" ng-click="session.vote(8)">8 Points</a>
+    <a class="btn btn-primary btn-sm margin-bottom-xs" ng-click="session.vote(13)">13 Points</a>
+    <a class="btn btn-primary btn-sm margin-bottom-xs" ng-click="session.vote(20)">20 Points</a>  
+</div>
+<div>
+    <a class="btn btn-success btn-sm" ng-click="session.showVote()">Show Vote</a>
+    <a class="btn btn-success btn-sm" ng-click="session.clearVote()">Clear Vote</a>
+</div>
+
+<ul class="list-unstyled">
+    <li ng-repeat="player in session.players track by $index">{{player.name}} <span ng-if="player.vote">- <span ng-if="!player.showVote">Voted </span><span ng-if="player.showVote">{{player.vote}}</span></span></li>
+</ul>
